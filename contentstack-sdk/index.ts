@@ -11,6 +11,7 @@ type GetEntry = {
   contentTypeUid: string;
   referenceFieldPath: string[] | undefined;
   jsonRtePath: string[] | undefined;
+  custom_color_pickerPath: string;
 };
 
 type GetEntryByUrl = {
@@ -18,6 +19,7 @@ type GetEntryByUrl = {
   contentTypeUid: string;
   referenceFieldPath: string[] | undefined;
   jsonRtePath: string[] | undefined;
+  custom_color_pickerPath: string;
 };
 
 const { publicRuntimeConfig } = getConfig();
@@ -59,12 +61,14 @@ const renderOption = {
  * @param {* content-type uid} contentTypeUid
  * @param {* reference field name} referenceFieldPath
  * @param {* Json RTE path} jsonRtePath
+ *@param {* custom_color_pickerPath} custom_color_pickerPath
  *
  */
 export const getEntry = ({
   contentTypeUid,
   referenceFieldPath,
   jsonRtePath,
+  custom_color_pickerPath,
 }: GetEntry) => {
   return new Promise((resolve, reject) => {
     const query = Stack.ContentType(contentTypeUid).Query();
@@ -96,6 +100,7 @@ export const getEntry = ({
  * @param {* url for entry to be fetched} entryUrl
  * @param {* reference field name} referenceFieldPath
  * @param {* Json RTE path} jsonRtePath
+ * @param {* custom_color_pickerPath} custom_color_pickerPath
  * @returns
  */
 export const getEntryByUrl = ({
@@ -103,6 +108,7 @@ export const getEntryByUrl = ({
   entryUrl,
   referenceFieldPath,
   jsonRtePath,
+  custom_color_pickerPath,
 }: GetEntryByUrl) => {
   return new Promise((resolve, reject) => {
     const blogQuery = Stack.ContentType(contentTypeUid).Query();

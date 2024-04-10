@@ -5,6 +5,7 @@ import { getPageRes } from '../helper';
 import Skeleton from 'react-loading-skeleton';
 import { Props, Context } from "../typescript/pages";
 
+
 export default function Home(props: Props) {
 
   const { page, entryUrl } = props;

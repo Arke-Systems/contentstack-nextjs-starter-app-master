@@ -53,7 +53,7 @@ export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPos
           {post && post.date ? (
             <p {...post.$?.date as {}}>
               {moment(post.date).format('ddd, MMM D YYYY')},{' '}
-              <strong {...post.author[0].$?.title as {}}>
+              <strong {...post.author[0].$?.title as {}} style={{ color: post.custom_color_picker ?? '#000000' }}>
                 {post.author[0].title}
               </strong>
             </p>
@@ -82,26 +82,12 @@ export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPos
           <div>{parse(post.json_rte)}</div>
         </article>
 
-        <div className='blog-column-right'>
-          <div className='related-post'>
-            {banner && banner?.page_components[2].widget ? (
-              <h2 {...banner?.page_components[2].widget.$?.title_h2 as {}}>
-                {banner?.page_components[2].widget.title_h2}
-              </h2>
-            ) : (
-              <h2>
-                <Skeleton />
-              </h2>
-            )}
-            {post && post.related_post ? (
-              <ArchiveRelative
-                {...post.$?.related_post}
-                blogs={post.related_post}
-              />
-            ) : (
-              <Skeleton width={300} height={500} />
-            )}
-          </div>
+        <div>
+          {post && post.custom_color_picker ? (
+            <p>{post.custom_color_picker}</p>
+          ) : (
+            <Skeleton width={100} />
+          )}
         </div>
       </div>
     </>

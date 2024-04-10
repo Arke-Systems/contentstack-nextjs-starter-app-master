@@ -16,6 +16,7 @@ export const getHeaderRes = async (): Promise<HeaderProps> => {
     contentTypeUid: "header",
     referenceFieldPath: ["navigation_menu.page_reference"],
     jsonRtePath: ["notification_bar.announcement_text"],
+    custom_color_pickerPath: "",
   })) as HeaderProps[][];
 
   liveEdit && addEditableTags(response[0][0], "header", true);
@@ -27,6 +28,7 @@ export const getFooterRes = async (): Promise<FooterProps> => {
     contentTypeUid: "footer",
     referenceFieldPath: undefined,
     jsonRtePath: ["copyright"],
+    custom_color_pickerPath: "",
   })) as FooterProps[][];
   liveEdit && addEditableTags(response[0][0], "footer", true);
   return response[0][0];
@@ -37,6 +39,7 @@ export const getAllEntries = async (): Promise<Page[]> => {
     contentTypeUid: "page",
     referenceFieldPath: undefined,
     jsonRtePath: undefined,
+    custom_color_pickerPath: "",
   })) as Page[][];
   liveEdit &&
     response[0].forEach((entry) => addEditableTags(entry, "page", true));
@@ -53,6 +56,7 @@ export const getPageRes = async (entryUrl: string): Promise<Page> => {
       "page_components.section_with_buckets.buckets.description",
       "page_components.section_with_html_code.description",
     ],
+    custom_color_pickerPath: "page_components.section_with_buckets.buckets.custom_color_picker",
   })) as Page[];
   liveEdit && addEditableTags(response[0], "page", true);
   return response[0];
@@ -63,6 +67,7 @@ export const getBlogListRes = async (): Promise<BlogPosts[]> => {
     contentTypeUid: "blog_post",
     referenceFieldPath: ["author", "related_post"],
     jsonRtePath: ["body"],
+    custom_color_pickerPath: "custom_color_picker",
   })) as BlogPosts[][];
   liveEdit &&
     response[0].forEach((entry) => addEditableTags(entry, "blog_post", true));
@@ -75,6 +80,7 @@ export const getBlogPostRes = async (entryUrl: string): Promise<BlogPosts> => {
     entryUrl,
     referenceFieldPath: ["author", "related_post"],
     jsonRtePath: ["body", "related_post.body", "json_rte"],
+    custom_color_pickerPath:  "custom_color_picker",
   })) as BlogPosts[];
   liveEdit && addEditableTags(response[0], "blog_post", true);
   return response[0];
