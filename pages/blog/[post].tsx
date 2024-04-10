@@ -8,7 +8,6 @@ import RenderComponents from '../../components/render-components';
 import ArchiveRelative from '../../components/archive-relative';
 import { Page, BlogPosts, PageUrl } from "../../typescript/pages";
 
-// ...
 
 export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPosts, page: Page, pageUrl: PageUrl}) {
 
@@ -126,3 +125,4 @@ export async function getServerSideProps({ params }: any) {
     return { notFound: true };
   }
 }
+
