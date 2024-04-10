@@ -7,7 +7,6 @@ import Skeleton from 'react-loading-skeleton';
 import RenderComponents from '../../components/render-components';
 import ArchiveRelative from '../../components/archive-relative';
 import { Page, BlogPosts, PageUrl } from "../../typescript/pages";
-import CustomColorPicker from '../../components/custom-color-picker';
 
 // ...
 
