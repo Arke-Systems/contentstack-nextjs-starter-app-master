@@ -74,7 +74,7 @@ export const getBlogPostRes = async (entryUrl: string): Promise<BlogPosts> => {
     contentTypeUid: "blog_post",
     entryUrl,
     referenceFieldPath: ["author", "related_post"],
-    jsonRtePath: ["body", "related_post.body"],
+    jsonRtePath: ["body", "related_post.body", "json_rte"],
   })) as BlogPosts[];
   liveEdit && addEditableTags(response[0], "blog_post", true);
   return response[0];

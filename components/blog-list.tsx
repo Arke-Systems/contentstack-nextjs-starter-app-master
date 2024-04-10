@@ -33,6 +33,9 @@ function BlogList({ bloglist }: { bloglist: BloglistProps }) {
   let body: string = bloglist.body && bloglist.body.substr(0, 300);
   const stringLength = body.lastIndexOf(' ');
   body = `${body.substr(0, Math.min(body.length, stringLength))}...`;
+
+  console.log('featured image', bloglist?.featured_image?.url);
+
   return (
     <div className='blog-list'>
       {bloglist.featured_image && (

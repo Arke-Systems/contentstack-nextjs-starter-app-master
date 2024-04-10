@@ -96,6 +96,13 @@ export type BlogPosts = {
   title: string;
   date: string;
   body: string;
+
+  // Adding `json_rte` to match the new field added to the Blog Entry content
+  // type. The name `json_rte` needs to match the "Unique Id" value for the
+  // field.
+  json_rte: string;
+
+  custom_color_picker: string;
   author: [Author];
   related_post: [Blog];
   locale: string;

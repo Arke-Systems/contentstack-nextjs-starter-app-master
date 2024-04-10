@@ -37,6 +37,8 @@ export default function Home(props: Props) {
   );
 }
 
+//this fires before the Home
+
 export async function getServerSideProps(context: Context) {
   try {
     const entryRes = await getPageRes(context.resolvedUrl);

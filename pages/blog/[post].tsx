@@ -7,10 +7,12 @@ import Skeleton from 'react-loading-skeleton';
 import RenderComponents from '../../components/render-components';
 import ArchiveRelative from '../../components/archive-relative';
 import { Page, BlogPosts, PageUrl } from "../../typescript/pages";
+import CustomColorPicker from '../../components/custom-color-picker';
 
+// ...
 
 export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPosts, page: Page, pageUrl: PageUrl}) {
-  
+
   const [getPost, setPost] = useState({ banner: page, post: blogPost });
   async function fetchData() {
     try {
@@ -62,12 +64,26 @@ export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPos
               <Skeleton width={300} />
             </p>
           )}
+          {blogPost.featured_image && (
+            <img
+              className='blog-list-img'
+              src={blogPost.featured_image.url}
+              alt='blog img'
+              {...blogPost.featured_image.$?.url as {}}
+            />
+          )}
+
           {post && post.body ? (
             <div {...post.$?.body as {}}>{parse(post.body)}</div>
           ) : (
             <Skeleton height={800} width={600} />
           )}
         </article>
+
+        <article>
+          <div>{parse(post.json_rte)}</div>
+        </article>
+
         <div className='blog-column-right'>
           <div className='related-post'>
             {banner && banner?.page_components[2].widget ? (
