@@ -82,13 +82,7 @@ export default function BlogPost({ blogPost, page, pageUrl }: {blogPost: BlogPos
           <div>{parse(post.json_rte)}</div>
         </article>
 
-        <div>
-          {post && post.custom_color_picker ? (
-            <p>{post.custom_color_picker}</p>
-          ) : (
-            <Skeleton width={100} />
-          )}
-        </div>
+        
       </div>
     </>
   );
